@@ -5,12 +5,12 @@
   "redis": {"host": "localhost", "port": 6379, "db": 0},
   "poses": {
     "init": {"position": [0.69, 0.0, 0.2], "orientation": [[-1, 0, 0], [0, 1, 0], [0, 0, -1]]},
-    "above_tile": {"position": [0.0, 0.69, 0.2], "orientation": [[0, -1, 0], [-1, 0, 0], [0, 0, -1]]},
-    "grasp": {"position": [0.0, 0.69, 0.15], "orientation": [[0, -1, 0], [-1, 0, 0], [0, 0, -1]]}
+    "above_tile": {"position": [0.378, 0.723, 0.2], "orientation": [[0, -1, 0], [-1, 0, 0], [0, 0, -1]]},
+    "grasp": {"position": [0.378,0.723,-0.07], "orientation": [[0, -1, 0], [-1, 0, 0], [0, 0, -1]]}
   },
-  "lift_height": 0.10,
+  "clearance_z": 0.20,
   "travel_speed": 0.08,
-  "approach_speed": 0.01,
+  "approach_speed": 0.05,
   "position_tolerance": 0.001,
   "orientation_tolerance_deg": 0.5,
   "settle_time": 0.3,
@@ -19,8 +19,8 @@
   "startup_timeout": 10.0,
   "loop_hz": 100.0,
   "gripper": {
-    "open_width": 0.05,
-    "close_width": 0.0,
+    "open_width": 0.07,
+    "close_width": 0.037,
     "speed": 0.05,
     "force": 60.0,
     "width_tolerance": 0.001

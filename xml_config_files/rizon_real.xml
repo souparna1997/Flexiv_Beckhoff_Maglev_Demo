@@ -2,14 +2,7 @@
 <robotControlConfiguration robotName="Rizon4s-063671"
 	robotModelFile="${DEMO_ROBOT_FOLDER}/flexiv_Rizon4s_kinematics_with_grav_static.urdf"
 	getMassMatrixFromRedis="true">
-	<controller name="joint_controller"
-		gravityCompensation="false">
-		<jointTask name="joint_task">
-			<gains kp="150.0" kv="10.0" ki="30.0" />
-			<otg type="disabled" />
-			<velocitySaturation enabled="false" />
-		</jointTask>
-	</controller>
+
 	<controller name="cartesian_controller"
 		gravityCompensation="false">
 		<motionForceTask name="cartesian_task"
@@ -47,4 +40,14 @@
 			<velocitySaturation enabled="true" />
 		</jointTask>
 	</controller>
+
+	<controller name="joint_controller"
+		gravityCompensation="false">
+		<jointTask name="joint_task">
+			<gains kp="150.0" kv="10.0" ki="30.0" />
+			<otg type="disabled" />
+			<velocitySaturation enabled="false" />
+		</jointTask>
+	</controller>
+	
 </robotControlConfiguration>
