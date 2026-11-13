@@ -1,0 +1,50 @@
+<redisConfiguration namespacePrefix="opensai" />
+<robotControlConfiguration robotName="Rizon4s-063671"
+	robotModelFile="${DEMO_ROBOT_FOLDER}/flexiv_Rizon4s_kinematics_with_grav_static.urdf"
+	getMassMatrixFromRedis="true">
+	<controller name="joint_controller"
+		gravityCompensation="false">
+		<jointTask name="joint_task">
+			<gains kp="150.0" kv="10.0" ki="30.0" />
+			<otg type="disabled" />
+			<velocitySaturation enabled="false" />
+		</jointTask>
+	</controller>
+	<controller name="cartesian_controller"
+		gravityCompensation="false">
+		<motionForceTask name="cartesian_task"
+			linkName="custom_grasp_tcp"
+			bieThreshold="0.25">
+			<velocitySaturation enabled="false" />
+			<otg type="acceleration"
+				maxLinearVelocity="0.03"
+				maxLinearAcceleration="0.1"
+				maxLinearJerk="1"
+				maxAngularVelocity="0.2"
+				maxAngularAcceleration="0.5"
+				maxAngularJerk="5" />
+			<positionGains kp="400.0 400.0 400.0"
+						kv="30.0 30.0 30.0"
+						ki="100.0 100.0 100.0"/>
+			<orientationGains kp="400.0 400.0 400.0"
+							kv="30.0 30.0 30.0"
+							ki="100.0 100.0 100.0"/>	
+			<forceControl closedLoopForceControl="false">
+				<forceSpaceParametrization dim="0"
+					direction="0 0 1" />
+				<momentSpaceParametrization dim="0"
+					direction="1 0 0" />
+				<forceGains kp="0.7"
+					kv="1.5"
+					ki="0.0" />
+				<momentGains kp="0.3"
+					kv="1.0"
+					ki="0.0" />
+			</forceControl>
+		</motionForceTask>
+		<jointTask name="joint_task">
+			<otg type="disabled" />
+			<velocitySaturation enabled="true" />
+		</jointTask>
+	</controller>
+</robotControlConfiguration>
